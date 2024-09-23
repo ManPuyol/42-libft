@@ -10,28 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	is_negative;
+	int	sign_count;
 	int	result;
 	int	i;
 
 	i = 0;
 	is_negative = 0;
+	sign_count = 0;
 	result = 0;
-	while ((str[i] >= 9 && str[i] <= 12) || (str[i] == ' '))
+	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
 		i++;
 	while (str[i] == '+' || str[i] == '-')
 	{
-		if (str[i] == '-')
+		if (sign_count++ > 0)
+			return (0);
+		if (str[i++] == '-')
 			is_negative++;
-		i++;
 	}
 	while (str[i] && ((str[i] >= '0' && str[i] <= '9')))
-	{
-		result = (result * 10) + (str[i] - '0');
-		i++;
-	}
+		result = (result * 10) + (str[i++] - '0');
 	if (is_negative % 2 == 1)
 		result *= -1;
 	return (result);
