@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 size_t	count_words(const char *s, char c)
 {
@@ -73,3 +74,21 @@ char	**ft_split(char const *s, char c)
 	result[i] = NULL;
 	return (result);
 }
+/*
+int main ()
+{
+	char **result;
+	char *str = ",,,,,,,,,,,,,,,,,,,,,,,,";
+
+	result = ft_split(str, ',');
+	if (result == NULL)
+		return (0);
+
+	while (*result)
+	{
+		printf("%s\n", *result);
+		result++;
+	}
+ 	return (0);	
+}
+*/
