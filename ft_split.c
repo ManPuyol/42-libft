@@ -43,6 +43,13 @@ char	*get_next_word(const char **s, char c)
 	return (ft_substr(word_start, 0, len));
 }
 
+void	free_all(char **result, size_t i)
+{
+	while (i--)
+		free(result[i]);
+	free(result);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
@@ -60,7 +67,7 @@ char	**ft_split(char const *s, char c)
 	{
 		result[i] = get_next_word(&s, c);
 		if (!result[i])
-			return (NULL);
+			return (free_all(result, i), NULL);
 		i++;
 	}
 	result[i] = NULL;
