@@ -39,7 +39,7 @@ char	*ft_itoa(int n)
 	len = count_digits(nb) + is_negative;
 	str = (char *)malloc(len + 1);
 	if (!str)
-		return ('\0');
+		return (NULL);
 	str[len] = '\0';
 	if (nb == 0)
 		str[0] = '0';
